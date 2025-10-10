@@ -1,0 +1,9 @@
+<form #submitForm="ngForm" (ngSubmit)="addUser(submitForm.value)" class="text-center mt-3">
+
+<input type="text" name="firstname" ngModel id="" placeholder="Enter first name"><br><br>
+<input type="text" name="lastname" ngModel id="" placeholder="Enter last name"><br><br>
+<input type="number" name="age" ngModel id="" placeholder="Enter age"><br><br>
+<input type="email" name="email" ngModel id="" placeholder="Enter email"><br><br>
+<button>Submit</button>
+
+</form>
