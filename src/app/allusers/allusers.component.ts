@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {ApiService} from '../services/api.service'
 import { User } from '../models/user';
+import {Router, Route} from '@angular/router'
 
 @Component({
   selector: 'app-allusers',
@@ -11,7 +12,8 @@ export class AllusersComponent {
 
   allUsers : User[] = []
   singleUser? : User
-    constructor(private apiservice : ApiService){}
+  editUser?: User;
+    constructor(private apiservice : ApiService , private _router : Router){}
 
     ngOnInit()
     {
@@ -30,6 +32,16 @@ export class AllusersComponent {
       
       })
 
+    }
+
+    editBtn(user : any)
+    {
+
+      if(user)
+      {
+        this._router.navigateByUrl('edituser')
+        localStorage.setItem('edituser' , JSON.stringify(user))
+      }
     }
 
 }

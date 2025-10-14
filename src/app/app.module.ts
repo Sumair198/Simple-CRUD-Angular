@@ -8,12 +8,14 @@ import { AllusersComponent } from './allusers/allusers.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AdduserComponent } from './adduser/adduser.component';
 import { FormsModule } from '@angular/forms';
+import { EdituserComponent } from './edituser/edituser.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AllusersComponent,
-    AdduserComponent
+    AdduserComponent,
+    EdituserComponent
   ],
   imports: [
     BrowserModule,
