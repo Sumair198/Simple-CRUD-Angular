@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { User } from '../models/user';
+import { ApiService } from '../services/api.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,6 +12,8 @@ import { User } from '../models/user';
 export class EdituserComponent {
 
   result? : User
+
+  constructor(private apiservice : ApiService , private _router : Router){}
 
   ngOnInit()
   {
@@ -22,5 +26,17 @@ export class EdituserComponent {
        this.result = editdata
     }
     
+  }
+
+  updateUser()
+  {
+    this.apiservice.editUser(this.result!.id! , this.result!).subscribe((res  :any)=>{
+      console.log(res)
+      if(res)
+      {
+        localStorage.removeItem('edituser')
+        this._router.navigateByUrl('allusers')
+      }
+    })
   }
 }

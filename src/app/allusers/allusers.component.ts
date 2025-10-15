@@ -34,7 +34,7 @@ export class AllusersComponent {
 
     }
 
-    editBtn(user : any)
+    editBtn(user : User)
     {
 
       if(user)
@@ -42,6 +42,13 @@ export class AllusersComponent {
         this._router.navigateByUrl('edituser')
         localStorage.setItem('edituser' , JSON.stringify(user))
       }
+    }
+    deleteBtn(id : any)
+    {
+      this.apiservice.deleteUser(id).subscribe((res : any)=>
+      {
+        console.log(res)
+      })
     }
 
 }

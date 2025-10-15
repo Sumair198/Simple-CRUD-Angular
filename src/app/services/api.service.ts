@@ -13,6 +13,7 @@ export class ApiService {
   apiUrlId = "https://dummyjson.com/users"
   apiUrlAddUser = "https://dummyjson.com/users/add"
   apiUrlUpdateUser = "https://dummyjson.com/users"
+  apiUrlDeleteUser = "https://dummyjson.com/users/{id}"
 
   getAllUsers()
   {
@@ -29,6 +30,10 @@ export class ApiService {
   editUser(id : number , data : User)
   {
     return this.http.put(`${this.apiUrlUpdateUser}/${id}` , data)
+  }
+  deleteUser(id : number)
+  {
+    return this.http.delete(`${this.apiUrlUpdateUser}/${id}`)
   }
 
 }
