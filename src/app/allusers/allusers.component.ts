@@ -20,6 +20,7 @@ export class AllusersComponent {
       this.apiservice.getAllUsers().subscribe((res : any)=>
       {
         this.allUsers = res.users
+        console.log(res)
       })
     }
 
